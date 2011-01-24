@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style type="text/css">
+            html { height: 100% }
+            body { height: 100%; margin: 0px; padding: 0px }
+            #map_canvas { height: 100% }
+        </style>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+        </script>
+        <script type="text/javascript">
+            function addLocations(map, locations) {
+                for (var i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1],locations[i][2]),
+                        map: map,
+                        title: locations[i][0]
+                    });
+                }
+            
+            };
+            function initialize() {
+                var latlng = new google.maps.LatLng(37.778,-122.414);
+                var myOptions = {
+                    zoom: 13,
+                    center: latlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"),
+                    myOptions);
+                
+                //TODO: Make different categories different colours
+                //TODO: Make click display more info, take to website etc.
+                
+                var sandwiches = [
+                  ["Jay's Cheesesteaks", 37.756822,-122.420676],
+                  ["Ike's Place", 37.764965,-122.431812],
+                  ["Toaster Oven (add'l locations)",37.787539,-122.398939],
+                  ["Rhea's Deli", 37.759994,-122.421513],
+                  ["Love n Haight",37.772072,-122.431297],
+                ];
+                addLocations(map,sandwiches);
+                var mexican = [
+                    ["Papalote (add'l locations)",37.752055,-122.420998],
+                    ["El Buen Sabor (add'l locations)", 37.761826,-122.421341],
+                    ["Taqueria Cancún", 37.760605,-122.419195],
+                ];
+                addLocations(map,mexican);
+            }
+        </script>
+    </head>
+    <body onload="initialize()">
+        <div id="map_canvas" style="width:100%; height:100%"></div>
+    </body>
+</html>
