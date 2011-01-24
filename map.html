@@ -21,9 +21,9 @@
             
             };
             function initialize() {
-                var latlng = new google.maps.LatLng(37.778,-122.414);
+                var latlng = new google.maps.LatLng(37.80,-122.314);
                 var myOptions = {
-                    zoom: 13,
+                    zoom: 12,
                     center: latlng,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
@@ -31,7 +31,7 @@
                     myOptions);
                 
                 //TODO: Make different categories different colours
-                //TODO: Make click display more info, take to website etc.
+                //TODO: Make click display more info (e.g. address), take to website etc.
                 
                 var sandwiches = [
                   ["Jay's Cheesesteaks", 37.756822,-122.420676],
@@ -62,6 +62,14 @@
                     ["Axum Cafe", 37.771665,-122.433615],
                 ];
                 addLocations(map,ethiopian);
+                var thai = [
+                    ["OSHA (add'l locations)", 37.759723,-122.421255],
+                    ["Tara", 37.787742,-122.399368],
+                    ["Tuk Tuk Cafe", 37.800154,-122.410355],
+                    ["Thep Phanom", 37.77119,-122.430267],
+                    ["Dara Thai-Lao",37.878647,-122.268906],
+                ];
+                addLocations(map,thai);
             }
         </script>
     </head>
